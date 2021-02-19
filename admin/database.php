@@ -24,8 +24,6 @@ public static function disconnect(){
     self::$connection = null;
 }
 
-
-
 }
 
 Database::connect();

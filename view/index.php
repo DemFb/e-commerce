@@ -3,9 +3,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', TRUE);
 ini_set('display_startup_errors', TRUE);
 
-require '../models/user.php';
-require '../layout/header.php';
-require '../models/product.php';
+require_once '../layout/header.php';
+require_once '../models/product.php';
 
 $productManager = new Products();
 ?>
@@ -15,10 +14,12 @@ $productManager = new Products();
     h1 class="text-logo"><span class="glyphicon glyphicon-cutlery"></span>King Burger<span class="glyphicon glyphicon-cutlery"></span></h1>
 
         <?php
+        /*
         require '../admin/database.php';
+        */
         echo '<nav>';
         echo '<ul class="nav nav-pills">';
-        $categories = $productManager->show_product();
+        $categories = $productManager->show_categorie();
                 foreach($categories as $category){
                     if($category['id'] == '1'){
                     echo ' <li role="presentation" class="active"><a href="#' .$category['id']. '" data-toggle="tab">'.$category['name'].'</a></li> ';
@@ -41,12 +42,12 @@ $productManager = new Products();
 
                 echo '<div class="row">';
                 
-                $show_categorie = $productManager->show_categorie($category);
+                $productManager->show_product($category);
 
-                while($item = $show_categorie->fetch()){
+                while($item = $productManager->fetch()){
                     echo ' <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <img src="images/'.$item['image'].'" alt="...">
+                        <img src="../assets/images/'.$item['image'].'" alt="...">
                         <div class = "price>'.number_format($item['price'],2,'.',''). ' €</div>
                         <div class="caption">
                             <h4>'.$item['name'].'</h4>
