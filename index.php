@@ -29,6 +29,7 @@
                             echo ' <li role="presentation" ><a href="#' .$category['id']. '" data-toggle="tab">'.$category['name'].'</a></li> ';
                             }
                         }
+                      echo ' <li role="presentation" ><a href="#7" data-toggle="tab">Panier</a></li>';
             echo '</ul>';
         echo '</nav>';
 
@@ -38,7 +39,7 @@
             if($category['id'] == '1'){
                 echo ' <div class="tab-pane active" id="'.$category['id']. '"> ';
                 }
-                else{
+                else {
                     echo ' <div class="tab-pane" id="'.$category['id']. '"> ';
                 }
 
@@ -63,6 +64,17 @@
                 </div>';
         }
         Database::disconnect();
+
+
+        
+            echo ' <div class="tab-pane active" id="7"> ';
+
+            echo '<div class="row">';
+                echo ' <div class="col-sm-6 col-md-4">
+                
+            </div>';
+            echo '</div>
+            </div>';
 
         echo '</div>'
         ?>
